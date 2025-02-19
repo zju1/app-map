@@ -24,7 +24,6 @@
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
-    "@ionic/portals-react-native": "^0.8.0",
     "mini-css-extract-plugin": "^2.9.2"
   }
 }
