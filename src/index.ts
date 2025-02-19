@@ -187,6 +187,10 @@ async function initMap(): Promise<void> {
       },
       copyrightsPosition: "bottom left",
       mode: "vector",
+      zoomRange: {
+        max: 19,
+        min: 10,
+      },
     },
     [new YMapDefaultFeaturesLayer({})]
   );
@@ -198,6 +202,22 @@ async function initMap(): Promise<void> {
         result.response.GeoObjectCollection.featureMember?.[0].GeoObject.name;
       const locationName = document.getElementById("locationName");
       locationName.textContent = address;
+    },
+    onTouchStart() {
+      document.getElementById("marker").classList.add("animated");
+      document.getElementById("dot").classList.add("visible");
+    },
+    onTouchEnd() {
+      document.getElementById("marker").classList.remove("animated");
+      document.getElementById("dot").classList.remove("visible");
+    },
+    onMouseUp() {
+      document.getElementById("marker").classList.remove("animated");
+      document.getElementById("dot").classList.remove("visible");
+    },
+    onMouseDown() {
+      document.getElementById("marker").classList.add("animated");
+      document.getElementById("dot").classList.add("visible");
     },
   });
 
